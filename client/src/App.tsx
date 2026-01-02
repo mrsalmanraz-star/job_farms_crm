@@ -10,6 +10,9 @@ import Clients from "./pages/Clients";
 import Bookings from "./pages/Bookings";
 import Billing from "./pages/Billing";
 import Settings from "./pages/Settings";
+import Reports from "./pages/Reports";
+import BookingRequest from "./pages/BookingRequest";
+import Invoices from "./pages/Invoices";
 
 function Router() {
   return (
@@ -18,7 +21,10 @@ function Router() {
         <Route path="/" component={Dashboard} />
         <Route path="/clients" component={Clients} />
         <Route path="/bookings" component={Bookings} />
+        <Route path="/booking-request" component={BookingRequest} />
+        <Route path="/invoices" component={Invoices} />
         <Route path="/billing" component={Billing} />
+        <Route path="/reports" component={Reports} />
         <Route path="/settings" component={Settings} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
