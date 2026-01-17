@@ -13,6 +13,8 @@ import Settings from "./pages/Settings";
 import Reports from "./pages/Reports";
 import BookingRequest from "./pages/BookingRequest";
 import Invoices from "./pages/Invoices";
+import Search from "./pages/Search";
+import Payments from "./pages/Payments";
 
 function Router() {
   return (
@@ -23,6 +25,8 @@ function Router() {
         <Route path="/bookings" component={Bookings} />
         <Route path="/booking-request" component={BookingRequest} />
         <Route path="/invoices" component={Invoices} />
+        <Route path="/search" component={Search} />
+        <Route path="/payments" component={Payments} />
         <Route path="/billing" component={Billing} />
         <Route path="/reports" component={Reports} />
         <Route path="/settings" component={Settings} />

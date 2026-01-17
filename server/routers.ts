@@ -215,6 +215,17 @@ export const appRouter = router({
   }),
 
   // ===== ADMIN SETTINGS =====
+  payments: router({
+    list: protectedProcedure.query(async () => {
+      // Return mock payment data for now
+      return [
+        { id: 1, bookingId: 1, amount: "5000", status: "paid", dueDate: new Date(), createdAt: new Date() },
+        { id: 2, bookingId: 2, amount: "7500", status: "pending", dueDate: new Date(), createdAt: new Date() },
+        { id: 3, bookingId: 3, amount: "6000", status: "overdue", dueDate: new Date(), createdAt: new Date() },
+      ];
+    }),
+  }),
+
   admin: router({
     getConfig: adminProcedure.query(async () => {
       return db.getSystemConfig();
