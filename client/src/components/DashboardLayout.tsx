@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/sidebar";
 import { getLoginUrl } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
-import { LayoutDashboard, LogOut, PanelLeft, Users, BarChart3, Briefcase, DollarSign, Settings, MessageSquare, FileText, Search as SearchIcon, CreditCard } from "lucide-react";
+import { LayoutDashboard, LogOut, PanelLeft, Users, BarChart3, Briefcase, DollarSign, Settings, MessageSquare, FileText, Search as SearchIcon, CreditCard, MapPin, Building2, Users2 } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
@@ -37,6 +37,9 @@ const menuItems = [
   { icon: CreditCard, label: "Payments", path: "/payments" },
   { icon: DollarSign, label: "Billing", path: "/billing" },
   { icon: BarChart3, label: "Reports", path: "/reports" },
+  { icon: MapPin, label: "Cities", path: "/cities" },
+  { icon: Building2, label: "Franchises", path: "/franchises" },
+  { icon: Users2, label: "Staff", path: "/staff" },
   { icon: Settings, label: "Settings", path: "/settings" },
 ];
 

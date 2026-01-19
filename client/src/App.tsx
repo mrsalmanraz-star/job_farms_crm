@@ -15,6 +15,9 @@ import BookingRequest from "./pages/BookingRequest";
 import Invoices from "./pages/Invoices";
 import Search from "./pages/Search";
 import Payments from "./pages/Payments";
+import Cities from "./pages/Cities";
+import Franchises from "./pages/Franchises";
+import Staff from "./pages/Staff";
 
 function Router() {
   return (
@@ -30,6 +33,9 @@ function Router() {
         <Route path="/billing" component={Billing} />
         <Route path="/reports" component={Reports} />
         <Route path="/settings" component={Settings} />
+        <Route path="/cities" component={Cities} />
+        <Route path="/franchises" component={Franchises} />
+        <Route path="/staff" component={Staff} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />
       </Switch>

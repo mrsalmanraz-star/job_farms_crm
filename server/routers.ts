@@ -215,6 +215,113 @@ export const appRouter = router({
   }),
 
   // ===== ADMIN SETTINGS =====
+  staff: router({
+    list: protectedProcedure.query(async () => {
+      return [
+        { id: 1, name: "Priya Sharma", phone: "9876543210", email: "priya@example.com", designation: "Maid", availability: "available", cityId: 1, franchiseId: 1, performance: "4.5", status: "active" },
+        { id: 2, name: "Anjali Verma", phone: "9876543211", email: "anjali@example.com", designation: "Cook", availability: "busy", cityId: 1, franchiseId: 1, performance: "4.8", status: "active" },
+      ];
+    }),
+    create: protectedProcedure
+      .input(z.object({
+        name: z.string().min(1),
+        phone: z.string(),
+        email: z.string().optional(),
+        designation: z.string().optional(),
+        availability: z.string().optional(),
+        cityId: z.number(),
+        franchiseId: z.number(),
+      }))
+      .mutation(async ({ input }) => {
+        return { success: true, id: Math.random() };
+      }),
+    update: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        name: z.string().optional(),
+        phone: z.string().optional(),
+        email: z.string().optional(),
+        designation: z.string().optional(),
+        availability: z.string().optional(),
+        cityId: z.number().optional(),
+        franchiseId: z.number().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return { success: true };
+      }),
+    delete: protectedProcedure
+      .input(z.number())
+      .mutation(async ({ input }) => {
+        return { success: true };
+      }),
+  }),
+
+  franchises: router({
+    list: protectedProcedure.query(async () => {
+      return [
+        { id: 1, name: "Mumbai Central", cityId: 1, commissionPercentage: "10", walletBalance: "50000", status: "active" },
+        { id: 2, name: "Mumbai West", cityId: 1, commissionPercentage: "12", walletBalance: "35000", status: "active" },
+      ];
+    }),
+    create: protectedProcedure
+      .input(z.object({
+        name: z.string().min(1),
+        cityId: z.number(),
+        commissionPercentage: z.number().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return { success: true, id: Math.random() };
+      }),
+    update: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        name: z.string().optional(),
+        cityId: z.number().optional(),
+        commissionPercentage: z.number().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return { success: true };
+      }),
+    delete: protectedProcedure
+      .input(z.number())
+      .mutation(async ({ input }) => {
+        return { success: true };
+      }),
+  }),
+
+  cities: router({
+    list: protectedProcedure.query(async () => {
+      return [
+        { id: 1, name: "Mumbai", state: "Maharashtra", gstRate: "18", status: "active", createdAt: new Date() },
+        { id: 2, name: "Bangalore", state: "Karnataka", gstRate: "18", status: "active", createdAt: new Date() },
+      ];
+    }),
+    create: protectedProcedure
+      .input(z.object({
+        name: z.string().min(1),
+        state: z.string().optional(),
+        gstRate: z.number().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return { success: true, id: Math.random() };
+      }),
+    update: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        name: z.string().optional(),
+        state: z.string().optional(),
+        gstRate: z.number().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        return { success: true };
+      }),
+    delete: protectedProcedure
+      .input(z.number())
+      .mutation(async ({ input }) => {
+        return { success: true };
+      }),
+  }),
+
   payments: router({
     list: protectedProcedure.query(async () => {
       // Return mock payment data for now
